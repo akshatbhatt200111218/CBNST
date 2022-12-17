@@ -1,0 +1,36 @@
+#include<stdio.h>
+  #include<conio.h>
+  #include<math.h>
+  float f(float x, float y)
+  {
+  float a;
+  a=x+y;
+  return a;
+  }
+
+  void main()
+  {
+    int n,i,test;
+    float x0,xf,y0,y1,h;
+    
+    printf("Enter the First value :- ");
+    scanf("%f",&x0);
+    printf("Enter the value of x at which you want to find y :- ");
+    scanf("%f",&xf);
+    printf("Enter the Lenth y :- ");
+    scanf("%f",&y0);
+    printf("Enter the Width h :- ");
+    scanf("%f",&h);
+    n=(xf-x0)/h;
+    while(n!=0)
+    {
+        y1=y0+h*f(x0,y0);
+        x0=x0+h;
+        y0=y1;
+        n--;
+    }
+    printf("Output = %f",y1);
+    
+    
+  }
+  
