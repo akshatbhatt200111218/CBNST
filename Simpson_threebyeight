@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<math.h>
+#define f(x) x*x
+int main()
+{
+    int a,b,n;
+    float h,x,sum=0,result;
+    printf("Enter the value of upper limit\n");
+    scanf("%d",&b);
+    printf("Enter the value of lower limit\n");
+    scanf("%d",&a);
+    printf("Enter the value of sub-intervals\n");
+    scanf("%d",&n);
+    h=fabs(b-a)/n;
+    for(int i=1;i<n;i++)
+    {
+        x=a+i*h;
+        if(i%3==0)
+        {
+            sum=sum+2*f(x);
+        }
+        else
+        sum=sum+3*f(x);
+    }
+result=(3*h/8)*(f(a)+f(b)+sum);
+printf("Value of integral is %f",result);
+}
