@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<math.h>
+#define error 0.001
+#define f(x) pow(x,3)-2*x-5
+int main()
+{
+float x0,x1,x2,f0,f1,f2;
+printf("Enter the value of initial guess\n");
+scanf("%f %f",&x0,&x1);
+f0=f(x0);
+f1=f(x1);
+do
+{
+ x2=((x0*f1)-(x1*f0))/(f1-f0);
+ f2=f(x2);   
+ if(f0*f2<0)
+ {
+    x1=x2;
+    f1=f2;
+ }
+ else
+ {
+    x0=x2;
+    f0=f2;
+ }
+} while (fabs(f2)>error);
+printf("The value of root is %f",x2);
+return 0;
+
+}
