@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+#define error 0.001
+#define f(x) pow(x,3)-4*x+1  //main equation
+#define df(x) 3*x*x    //derivative
+int main()
+{
+float x0,x1,f0,f1,df0;
+int i;
+printf("Enter the of value of initial guess\n");
+scanf("%f",&x0);
+do{
+f0=f(x0);  //calculating value of main equation at x0
+df0=df(x0);  //calculating value of differentiation equation at x0
+x1=x0-f0/df0;  //calculating x1 using formula
+f1=f(x1);  //value of main equation at calculated x1
+x0=x1;  
+i++;
+printf("Number of iterations are %d\n",i);
+printf("%f\n",x1);
+printf("Value of function %f\n",f1);
+printf("\n");
+}while(fabs(f1)>error);
+
+return 0;
+}
